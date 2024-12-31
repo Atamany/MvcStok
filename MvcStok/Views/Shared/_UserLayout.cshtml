@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MVC Proje</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MVC Proje</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ürünler<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Urunler/UserIndex?UrunKategori=1">Telefon</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=2">Tablet</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=3">Bilgisayar</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=4">Televizyon</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=5">Oyun Konsolu</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=6">Yazıcı</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=7">USB</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=8">Harddisk</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=9">Powerbank</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=10">Kablo</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=11">VR Gözlük</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=12">Kulaklık</a></li>
+                        <li><a href="/Urunler/UserIndex?UrunKategori=13">Akıllı Saat</a></li>
+                    </ul>
+                </li>
+                <li><a href="/UserMusteri/UserMusteri/">Profil</a></li>
+                <li><a href="/Alimlar/Index/">Satın Alma Geçmişi</a></li>
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+        <label>Ad</label>
+        <input type="text" class="form-control" name="UrunAd" />
+    </div>
+    <div>
+        <label>Marka</label>
+        <input type="text" class="form-control" name="UrunMarka" />
+    </div>
+    <div>
+        <label>Kategori</label>
+        <input type="text" class="form-control" name="UrunKategori" />
+    </div>
+    <div>
+        <label>Stok</label>
+        <input type="text" class="form-control" name="UrunStok" />
+    </div>
+    <div>
+        <label>Fiyat</label>
+        <input type="text" class="form-control" name="Fiyat" />
+    </div>
+
+    <div style="margin-top:10px;">
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+
