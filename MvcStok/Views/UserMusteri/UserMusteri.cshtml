@@ -1,23 +1,38 @@
 ﻿
 @{
-    ViewBag.Title = "UserMusteri";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+	ViewBag.Title = "UserMusteri";
+	Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 <form id="Form1" runat="server">
-    <h1>Profilim</h1>
-    <br />
-    <br />
-    <table class="table table-hover">
-        <tbody>
-            @foreach (var mstr in Model)
-            {
-                <tr><td>Telefon Numarası: </td><td>@mstr.MusteriTelefon</td></tr>
-                <tr><td>Ad: </td><td>@mstr.MusteriAd</td></tr>
-                <tr><td>Soyad: </td><td>@mstr.MusteriSoyad</td></tr>
-                <tr><td>Şifre: </td><td>@mstr.MusteriSifre </td></tr>
-                <tr><td><a href="/SifreDegistir/@mstr.MusteriTelefon" class="btn btn-warning">Şifre Değiştir!</a><td><a href="/Sil/@mstr.MusteriTelefon" class="btn btn-danger">Profili Sil</a></td></tr>
-            }
-        </tbody>
-    </table>
+	<h1>Profilim</h1>
+	<br />
+	<br />
+	<table class="table table-hover">
+		<tbody>
+			@foreach (var mstr in Model)
+			{
+				<tr><td>Telefon Numarası: </td><td>@mstr.MusteriTelefon</td></tr>
+				<tr><td>Ad: </td><td>@mstr.MusteriAd</td></tr>
+				<tr><td>Soyad: </td><td>@mstr.MusteriSoyad</td></tr>
+				<tr><td>Şifre: </td><td>@mstr.MusteriSifre </td></tr>
+
+				<tr><td>Hesap Durumu: </td><td>@ViewBag.HesapDurumu </td></tr>
+				<tr>
+					<td>
+						<a href="SifreGuncelle" class="btn btn-warning">Şifre Değiştir!</a>
+					<td>
+						@if (ViewBag.MusteriDurum == true)
+						{
+							<a href="MusteriSil" class="btn btn-danger">Profili Dondur!</a>
+						}
+						else if (ViewBag.MusteriDurum == false)
+						{
+							<a href="MusteriAktive" class="btn btn-success">Profili Aktive Et!</a>
+						}
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
 </form>

@@ -1,0 +1,27 @@
+﻿@model MvcStok.Models.Entity.Tbl_Musteri
+@{
+	ViewBag.Title = "SifreGuncelle";
+	Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<form method="post" runat="server">
+	<h1>Şifre Değiştirme Paneli</h1>
+	<br />
+	<br />
+	<div class="form-group">
+		<label>Şifre:</label>
+		<div class="group">
+			<input type="password" class="form-control" placeholder="Şifre" id="password1" name="password1" required="required" />
+		</div>
+		<br />
+		<div class="form-group">
+			<label>Şifre (Tekrar):</label>
+			<div class="group">
+				<input type="password" class="form-control" placeholder="Şifre (Tekrar)" id="password2" name="password2" required="required" />
+			</div>
+		</div>
+		<br />
+		<input type="submit" class="btn btn-success"/>
+	</div>
+</form>
+

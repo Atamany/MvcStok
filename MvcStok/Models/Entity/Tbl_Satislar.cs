@@ -18,6 +18,7 @@ namespace MvcStok.Models.Entity
         public Nullable<int> Urun { get; set; }
         public string Musteri { get; set; }
         public Nullable<byte> Adet { get; set; }
+        public Nullable<System.DateTime> Tarih { get; set; }
     
         public virtual Tbl_Musteri Tbl_Musteri { get; set; }
         public virtual Tbl_Urunler Tbl_Urunler { get; set; }

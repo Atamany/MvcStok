@@ -36,7 +36,10 @@ namespace MvcStok.Controllers
             sts.Urun = UInt16.Parse(Request.QueryString["UrunId"]);
             sts.Musteri = Session["MusteriTelefon"].ToString();
             db.Tbl_Satislar.Add(sts);
-            db.SaveChanges();
+			Tbl_Urunler urun = db.Tbl_Urunler.Find(UrunId);
+			urun.UrunStok = Convert.ToByte(urun.UrunStok - sts.Adet);
+            sts.Tarih = DateTime.Parse(DateTime.Now.ToString());
+			db.SaveChanges();
 
             return RedirectToAction("Index", "Alimlar");
         }

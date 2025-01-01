@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MvcDbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MvcDbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -48,6 +48,7 @@
           <Property Name="Urun" Type="int" />
           <Property Name="Musteri" Type="varchar" MaxLength="11" />
           <Property Name="Adet" Type="tinyint" />
+          <Property Name="Tarih" Type="datetime" />
         </EntityType>
         <EntityType Name="Tbl_Urunler">
           <Key>
@@ -117,8 +118,7 @@
             <End Role="Tbl_Urunler" EntitySet="Tbl_Urunler" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MvcDbStokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -169,6 +169,7 @@
           <Property Name="Adet" Type="Byte" />
           <NavigationProperty Name="Tbl_Musteri" Relationship="Self.FK_Tbl_Satislar_Tbl_Musteri" FromRole="Tbl_Satislar" ToRole="Tbl_Musteri" />
           <NavigationProperty Name="Tbl_Urunler" Relationship="Self.FK_Tbl_Satislar_Tbl_Urunler" FromRole="Tbl_Satislar" ToRole="Tbl_Urunler" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Tbl_Urunler">
           <Key>
@@ -180,9 +181,9 @@
           <Property Name="UrunKategori" Type="Int32" />
           <Property Name="UrunStok" Type="Byte" />
           <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Durum" Type="Boolean" />
           <NavigationProperty Name="Tbl_Kategori" Relationship="Self.FK_Tbl_Urunler_Tbl_Kategori" FromRole="Tbl_Urunler" ToRole="Tbl_Kategori" />
           <NavigationProperty Name="Tbl_Satislar" Relationship="Self.FK_Tbl_Satislar_Tbl_Urunler" FromRole="Tbl_Urunler" ToRole="Tbl_Satislar" />
+          <Property Name="Durum" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Tbl_Urunler_Tbl_Kategori">
           <End Role="Tbl_Kategori" Type="Self.Tbl_Kategori" Multiplicity="0..1" />
@@ -288,6 +289,7 @@
           <EntitySetMapping Name="Tbl_Satislar">
             <EntityTypeMapping TypeName="MvcDbStokModel.Tbl_Satislar">
               <MappingFragment StoreEntitySet="Tbl_Satislar">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
                 <ScalarProperty Name="SatisId" ColumnName="SatisId" />
                 <ScalarProperty Name="Urun" ColumnName="Urun" />
                 <ScalarProperty Name="Musteri" ColumnName="Musteri" />
@@ -298,13 +300,13 @@
           <EntitySetMapping Name="Tbl_Urunler">
             <EntityTypeMapping TypeName="MvcDbStokModel.Tbl_Urunler">
               <MappingFragment StoreEntitySet="Tbl_Urunler">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
                 <ScalarProperty Name="UrunId" ColumnName="UrunId" />
                 <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
                 <ScalarProperty Name="UrunMarka" ColumnName="UrunMarka" />
                 <ScalarProperty Name="UrunKategori" ColumnName="UrunKategori" />
                 <ScalarProperty Name="UrunStok" ColumnName="UrunStok" />
                 <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
-                <ScalarProperty Name="Durum" ColumnName="Durum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

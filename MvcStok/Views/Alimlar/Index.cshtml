@@ -7,18 +7,18 @@
 
 <table class="table table-bordered">
     <tr>
-        <th>ID</th>
         <th>Ürün</th>
         <th>Adet</th>
+        <th>Tarih</th>
 
     </tr>
     <tbody>
         @foreach (var sts in Model)
         {
             <tr>
-                <th>@sts.SatisId</th>
                 <td>@sts.Tbl_Urunler.UrunMarka @sts.Tbl_Urunler.UrunAd</td>
                 <td>@sts.Adet</td>
+                <td>@sts.Tarih</td>
             </tr>
         }
     </tbody>
