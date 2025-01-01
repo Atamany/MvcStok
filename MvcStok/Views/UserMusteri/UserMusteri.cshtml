@@ -12,12 +12,11 @@
 		<tbody>
 			@foreach (var mstr in Model)
 			{
-				<tr><td>Telefon Numarası: </td><td>@mstr.MusteriTelefon</td></tr>
-				<tr><td>Ad: </td><td>@mstr.MusteriAd</td></tr>
-				<tr><td>Soyad: </td><td>@mstr.MusteriSoyad</td></tr>
-				<tr><td>Şifre: </td><td>@mstr.MusteriSifre </td></tr>
-
-				<tr><td>Hesap Durumu: </td><td>@ViewBag.HesapDurumu </td></tr>
+				<tr><th>Telefon Numarası: </th><td>@mstr.MusteriTelefon</td></tr>
+				<tr><th>Ad: </th><td>@mstr.MusteriAd</td></tr>
+				<tr><th>Soyad: </th><td>@mstr.MusteriSoyad</td></tr>
+				<tr><th>Şifre: </th><td>@mstr.MusteriSifre </td></tr>
+				<tr><th>Hesap Durumu: </th><td>@ViewBag.HesapDurumu </td></tr>
 				<tr>
 					<td>
 						<a href="SifreGuncelle" class="btn btn-warning">Şifre Değiştir!</a>
