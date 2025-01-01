@@ -1,33 +1,22 @@
-﻿
+﻿﻿@model MvcStok.Models.Entity.Tbl_Urunler
+
 @{
     ViewBag.Title = "YeniUrun";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<form method="post" class="form-group">
-    <div>
-        <label>Ad</label>
-        <input type="text" class="form-control" name="UrunAd" />
-    </div>
-    <div>
-        <label>Marka</label>
-        <input type="text" class="form-control" name="UrunMarka" />
-    </div>
-    <div>
-        <label>Kategori</label>
-        <input type="text" class="form-control" name="UrunKategori" />
-    </div>
-    <div>
-        <label>Stok</label>
-        <input type="text" class="form-control" name="UrunStok" />
-    </div>
-    <div>
-        <label>Fiyat</label>
-        <input type="text" class="form-control" name="Fiyat" />
-    </div>
+<form method="post">
+    <h2>Yeni Ürün Ekleme</h2><br />
+    <label>Ad</label>
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control", @placeholder = "Ad" })<br />
+    <label>Marka</label>
+    @Html.TextBoxFor(x => x.UrunMarka, new { @class = "form-control", @placeholder = "Marka" })<br />
+    <label>Kategori</label>
+    @Html.DropDownListFor(x => x.Tbl_Kategori.KategoriId, (List<SelectListItem>)ViewBag.drop, new { @class = "form-control" })<br />
+    <label>Stok</label>
+    @Html.TextBoxFor(x => x.UrunStok, new { @class = "form-control", @placeholder = "Stok" })<br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", @placeholder = "Fiyat" })<br />
 
-    <div style="margin-top:10px;">
-        <button class="btn btn-info">Kaydet</button>
-    </div>
+    <button class="btn btn-info">Kaydet!</button>
 </form>
-
