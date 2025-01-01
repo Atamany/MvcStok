@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<h1>@ViewBag.Category Kategorisine Ait Ürünler</h1>
 <table class="table table-bordered">
     <tr>
         <th>Ad</th>
@@ -23,7 +23,7 @@
                 <td>@urn.Fiyat</td>
                 <td>
                     <a href="/Urunler/UrunSil/@urn.UrunId" class="btn btn-danger">Sil</a>
-                    <a href="/Urunler/UrunGuncelle/@urn.UrunId" class="btn btn-success">Güncelle</a>
+                    <a href="/Urunler/UrunGetir/@urn.UrunId" class="btn btn-success">Güncelle</a>
                 </td>
             </tr>
         }

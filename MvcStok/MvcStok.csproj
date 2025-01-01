@@ -275,6 +275,7 @@
     <Content Include="Views\Urunler\Index.cshtml" />
     <Content Include="Views\Login\AdminGiris.cshtml" />
     <Content Include="Views\UserMusteri\SifreGuncelle.cshtml" />
+    <Content Include="Views\Urunler\UrunGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
