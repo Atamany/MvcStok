@@ -32,6 +32,25 @@ namespace MvcStok.Controllers
                 return View();
             }
         }
+        public ActionResult AdminGiris()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminGiris(Tbl_Admin t)
+        {
+            var bilgiler = db.Tbl_Admin.FirstOrDefault(x => x.Username == t.Username && x.Password == t.Password);
+            if (bilgiler != null)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.AdminId.ToString(), false);
+                Session["AdminId"] = bilgiler.AdminId.ToString();
+                return RedirectToAction("Index", "Satislar");
+            }
+            else
+            {
+                return View();
+            }
+        }
         [HttpGet]
         public ActionResult KayitOl()
         {

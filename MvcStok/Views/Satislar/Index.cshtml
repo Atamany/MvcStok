@@ -11,7 +11,6 @@
         <th>Ürün</th>
         <th>Müşteri</th>
         <th>Adet</th>
-        <th>İşlemler</th>
 
     </tr>
     <tbody>
@@ -19,8 +18,8 @@
         {
             <tr>
                 <th>@sts.SatisId</th>
-                <td>@sts.Urun</td>
-                <td>@sts.Musteri</td>
+				<td>@sts.Tbl_Urunler.UrunMarka @sts.Tbl_Urunler.UrunAd</td>
+                <td>@sts.Tbl_Musteri.MusteriAd @sts.Tbl_Musteri.MusteriSoyad</td>
                 <td>@sts.Adet</td>
             </tr>
         }

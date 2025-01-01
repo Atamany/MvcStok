@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MvcDbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MvcDbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -17,27 +17,26 @@
         </EntityType>
         <EntityType Name="Tbl_Admin">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="AdminId" />
           </Key>
           <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="11" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Tbl_Kategori">
           <Key>
             <PropertyRef Name="KategoriId" />
           </Key>
-          <Property Name="KategoriId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KategoriAd" Type="varchar" MaxLength="50" />
-          <Property Name="Durum" Type="bit" />
         </EntityType>
         <EntityType Name="Tbl_Musteri">
           <Key>
             <PropertyRef Name="MusteriTelefon" />
           </Key>
           <Property Name="MusteriTelefon" Type="varchar" MaxLength="11" Nullable="false" />
-          <Property Name="MusteriAd" Type="varchar" MaxLength="50" />
-          <Property Name="MusteriSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="MusteriAd" Type="varchar" MaxLength="30" />
+          <Property Name="MusteriSoyad" Type="varchar" MaxLength="30" />
           <Property Name="MusteriSifre" Type="varchar" MaxLength="30" />
           <Property Name="Durum" Type="bit" />
         </EntityType>
@@ -47,7 +46,7 @@
           </Key>
           <Property Name="SatisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Urun" Type="int" />
-          <Property Name="Musteri" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Musteri" Type="varchar" MaxLength="11" />
           <Property Name="Adet" Type="tinyint" />
         </EntityType>
         <EntityType Name="Tbl_Urunler">
@@ -57,13 +56,13 @@
           <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UrunAd" Type="varchar" MaxLength="50" />
           <Property Name="UrunMarka" Type="varchar" MaxLength="50" />
-          <Property Name="UrunKategori" Type="smallint" />
+          <Property Name="UrunKategori" Type="int" />
           <Property Name="UrunStok" Type="tinyint" />
           <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Durum" Type="bit" />
         </EntityType>
         <Association Name="FK_Tbl_Satislar_Tbl_Musteri">
-          <End Role="Tbl_Musteri" Type="Self.Tbl_Musteri" Multiplicity="1" />
+          <End Role="Tbl_Musteri" Type="Self.Tbl_Musteri" Multiplicity="0..1" />
           <End Role="Tbl_Satislar" Type="Self.Tbl_Satislar" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Musteri">
@@ -118,7 +117,8 @@
             <End Role="Tbl_Urunler" EntitySet="Tbl_Urunler" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MvcDbStokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -134,19 +134,18 @@
         </EntityType>
         <EntityType Name="Tbl_Admin">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="AdminId" />
           </Key>
           <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Tbl_Kategori">
           <Key>
             <PropertyRef Name="KategoriId" />
           </Key>
-          <Property Name="KategoriId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Durum" Type="Boolean" />
           <NavigationProperty Name="Tbl_Urunler" Relationship="Self.FK_Tbl_Urunler_Tbl_Kategori" FromRole="Tbl_Kategori" ToRole="Tbl_Urunler" />
         </EntityType>
         <EntityType Name="Tbl_Musteri">
@@ -154,8 +153,8 @@
             <PropertyRef Name="MusteriTelefon" />
           </Key>
           <Property Name="MusteriTelefon" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MusteriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MusteriSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MusteriAd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MusteriSoyad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="MusteriSifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Durum" Type="Boolean" />
           <NavigationProperty Name="Tbl_Satislar" Relationship="Self.FK_Tbl_Satislar_Tbl_Musteri" FromRole="Tbl_Musteri" ToRole="Tbl_Satislar" />
@@ -166,7 +165,7 @@
           </Key>
           <Property Name="SatisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Urun" Type="Int32" />
-          <Property Name="Musteri" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Musteri" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="Adet" Type="Byte" />
           <NavigationProperty Name="Tbl_Musteri" Relationship="Self.FK_Tbl_Satislar_Tbl_Musteri" FromRole="Tbl_Satislar" ToRole="Tbl_Musteri" />
           <NavigationProperty Name="Tbl_Urunler" Relationship="Self.FK_Tbl_Satislar_Tbl_Urunler" FromRole="Tbl_Satislar" ToRole="Tbl_Urunler" />
@@ -178,7 +177,7 @@
           <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UrunMarka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UrunKategori" Type="Int16" />
+          <Property Name="UrunKategori" Type="Int32" />
           <Property Name="UrunStok" Type="Byte" />
           <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Durum" Type="Boolean" />
@@ -198,7 +197,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Satislar_Tbl_Musteri">
-          <End Role="Tbl_Musteri" Type="Self.Tbl_Musteri" Multiplicity="1" />
+          <End Role="Tbl_Musteri" Type="Self.Tbl_Musteri" Multiplicity="0..1" />
           <End Role="Tbl_Satislar" Type="Self.Tbl_Satislar" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Musteri">
@@ -272,7 +271,6 @@
               <MappingFragment StoreEntitySet="Tbl_Kategori">
                 <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
                 <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
-                <ScalarProperty Name="Durum" ColumnName="Durum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

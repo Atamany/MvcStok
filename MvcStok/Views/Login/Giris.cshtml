@@ -30,29 +30,30 @@
 
 <body>
     <h1>Giriş Form Paneli</h1>
-    <div class=" w3l-login-form">
-        <h2>MVC Stok</h2>
-        @using (Html.BeginForm("Giris", "Login", FormMethod.Post))
-        {
+	<div class=" w3l-login-form">
+		<h2>MVC Stok</h2>
+		@using (Html.BeginForm("Giris", "Login", FormMethod.Post))
+		{
 
-            <div class=" w3l-form-group">
-                <label>Telefon Numarası:</label>
-                <div class="group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Telefon Numarası" required="required" name="MusteriTelefon" />
-                </div>
-            </div>
-            <div class=" w3l-form-group">
-                <label>Şifre:</label>
-                <div class="group">
-                    <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" placeholder="Şifre" required="required" name="MusteriSifre" />
-                </div>
-            </div>
-            <button type="submit">Giriş Yap</button>
-        }
-        <p class=" w3l-register-p">Bir Hesabınız Yok Mu?<a href="KayitOl" class="register"> Kayıt Ol!</a></p>
-    </div>
+			<div class=" w3l-form-group">
+				<label>Telefon Numarası:</label>
+				<div class="group">
+					<i class="fas fa-user"></i>
+					<input type="text" class="form-control" placeholder="Telefon Numarası" required="required" name="MusteriTelefon" />
+				</div>
+			</div>
+			<div class=" w3l-form-group">
+				<label>Şifre:</label>
+				<div class="group">
+					<i class="fas fa-unlock"></i>
+					<input type="password" class="form-control" placeholder="Şifre" required="required" name="MusteriSifre" />
+				</div>
+			</div>
+			<button type="submit">Giriş Yap</button>
+		}
+		<p class=" w3l-register-p">Bir Hesabınız Yok Mu?<a href="KayitOl" class="register"> Kayıt Ol!</a></p>
+		<p class=" w3l-register-p">Admin Hesabınız Mı  Var?<a href="AdminGiris" class="register"> Admin Girişi!</a></p>
+	</div>
 
 </body>
 

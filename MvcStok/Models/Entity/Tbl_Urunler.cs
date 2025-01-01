@@ -23,7 +23,7 @@ namespace MvcStok.Models.Entity
         public int UrunId { get; set; }
         public string UrunAd { get; set; }
         public string UrunMarka { get; set; }
-        public Nullable<short> UrunKategori { get; set; }
+        public Nullable<int> UrunKategori { get; set; }
         public Nullable<byte> UrunStok { get; set; }
         public Nullable<decimal> Fiyat { get; set; }
         public Nullable<bool> Durum { get; set; }

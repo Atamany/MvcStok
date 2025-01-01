@@ -37,6 +37,7 @@ namespace MvcStok.Controllers
             sts.Musteri = Session["MusteriTelefon"].ToString();
             db.Tbl_Satislar.Add(sts);
             db.SaveChanges();
+
             return RedirectToAction("Index", "Alimlar");
         }
     }

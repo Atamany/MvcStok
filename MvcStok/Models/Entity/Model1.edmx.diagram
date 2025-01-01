@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="141cd20c6f9141dca90dd13bd9b98528" Name="Diagram1">
+      <Diagram DiagramId="637a814174084f829f9e64ba11d288a1" Name="Diagram1">
         <EntityTypeShape EntityType="MvcDbStokModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcDbStokModel.Tbl_Admin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcDbStokModel.Tbl_Kategori" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
