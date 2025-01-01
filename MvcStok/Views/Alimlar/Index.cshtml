@@ -1,5 +1,7 @@
 ﻿@using MvcStok.Models.Entity
-@model List<Tbl_Satislar>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Tbl_Satislar>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -23,4 +25,4 @@
         }
     </tbody>
 </table>
-
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))

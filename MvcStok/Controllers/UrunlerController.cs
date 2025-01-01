@@ -1,4 +1,5 @@
 ﻿using MvcStok.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +11,18 @@ namespace MvcStok.Controllers
     public class UrunlerController : Controller
     {
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult UserIndex()
+        public ActionResult UserIndex(int sayfa=1)
         {
             int ktg = Convert.ToInt32(Request.QueryString["UrunKategori"]);
             ViewBag.Category = db.Tbl_Kategori.Where(Tbl_Kategori => Tbl_Kategori.KategoriId == ktg).FirstOrDefault().KategoriAd;
-            var degerler = db.Tbl_Urunler.Where(x => x.UrunStok > 0 && x.Durum == true && x.UrunKategori == ktg).ToList();
+            var degerler = db.Tbl_Urunler.Where(x => x.UrunStok > 0 && x.Durum == true && x.UrunKategori == ktg).ToList().ToPagedList(sayfa, 10);
             return View(degerler);
         }
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
             int ktg = Convert.ToInt32(Request.QueryString["UrunKategori"]);
             ViewBag.Category = db.Tbl_Kategori.Where(Tbl_Kategori => Tbl_Kategori.KategoriId == ktg).FirstOrDefault().KategoriAd;
-            var degerler = db.Tbl_Urunler.Where(x => x.Durum == true && x.UrunKategori == ktg).ToList();
+            var degerler = db.Tbl_Urunler.Where(x => x.Durum == true && x.UrunKategori == ktg).ToList().ToPagedList(sayfa, 10);
             return View(degerler);
         }
 

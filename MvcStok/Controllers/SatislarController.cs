@@ -5,15 +5,17 @@ using System.Linq;
 using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace MvcStok.Controllers
 {
     public class SatislarController : Controller
     {
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = db.Tbl_Satislar.ToList();
+            var degerler = db.Tbl_Satislar.ToList().ToPagedList(sayfa,10);
             return View(degerler);
         }
         [HttpGet]
