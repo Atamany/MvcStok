@@ -9,7 +9,12 @@
     <div class="alert alert-dark"><label>Ürün: </label><br /><div class="border table-bordered">@ViewBag.Urun</div></div>
     <div class="alert alert-dark"><label>Adet: </label><input type="text" class="form-control" name="Adet" required="required" /></div>
     <div style="margin-top:10px;">
-        <button class="btn btn-info">Kaydet</button>
+        <button class="btn btn-info" id="btnKaydet">Kaydet</button>
     </div>
+    <script>
+        $('#btnKaydet').click(function () {
+            alert('Satın Alma İşlemi Başarıyla Gerçekleşti!');
+        });
+    </script>
 </form>
 
